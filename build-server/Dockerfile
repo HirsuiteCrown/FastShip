@@ -1,9 +1,13 @@
+#build server is light weight docker image where we going to build projects/code
 FROM ubuntu:focal
 
 #update all the packages
 RUN apt-get update
+
+#install the curl software/package inside the container -y(auto-approve)
 RUN apt-get install -y curl
 
+#nodejs setup 20
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get upgrade -y
 
