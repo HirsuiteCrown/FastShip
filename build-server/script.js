@@ -28,9 +28,9 @@ async function init(){
     p.stdout.on('data', function(data){
         console.log(data.toString());
     })
-    p.stdout.on('Error', function(data){
-        console.log('Error',data.toString());
-    })
+    p.stderr.on('data', function(data){
+        console.log('Error', data.toString());
+    })    
     p.on('close',async function(){
         console.log('Build Complete')
         //after build we have to put dist file into S3
@@ -54,7 +54,4 @@ async function init(){
         }
         console.log('Done...')
     })
-
-   
-
 }
