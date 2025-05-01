@@ -6,6 +6,7 @@ const app = express();
 const PORT = 9000;
 
 const ecsClient = new ECSClient({
+    region: 'ap-south-1',
     credentials: {
         accessKeyId: '',
         secretAccessKey: ''
