@@ -51,7 +51,7 @@ async function init(){
         //when we upload on S3 we have to give file path not folder.
         publishLog('Starting to upload');
         for(const file of distFolderContents){
-            publishLog.publish(`uploading file ${file}`);
+            publishLog(`uploading file ${file}`);
             const filePath = path.join(distFolderPath,file);
             if(fs.lstatSync(filePath).isDirectory()) continue;
             //if folder then continue else upload on s3
@@ -64,10 +64,10 @@ async function init(){
             })
 
             await s3Client.send(command);
-            publishLog.publish(`uploaded ${file}`);
+            publishLog(`uploaded ${file}`);
             console.log('uploaded', filePath);
         }
-        publishLog.publish('Done');
+        publishLog('Done');
         console.log('Done...')
     })
 }
