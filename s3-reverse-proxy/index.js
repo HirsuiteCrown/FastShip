@@ -12,7 +12,7 @@ app.use((req,res)=>{
     const hostname = req.hostname;
     const subdomain = hostname.split('.')[0];
 
-    const resolveTo = `${BASE_PATH}/${subdomain}`
+    const resolveTo = `${BASE_PATH}/${subdomain}`    //s3 bucket path / subdomain
 
     return proxy.web(req,res,{target: resolveTo, changeOrigin:true});
 })
