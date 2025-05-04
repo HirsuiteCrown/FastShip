@@ -12,6 +12,8 @@ app.use((req,res)=>{
     const hostname = req.hostname;
     const subdomain = hostname.split('.')[0];
 
+    //db query using prisma :- subdomain se hum project id dhundhege then in belwo resolveTo in place of subdomainpass that project id
+
     const resolveTo = `${BASE_PATH}/${subdomain}`    //s3 bucket path / subdomain
 
     return proxy.web(req,res,{target: resolveTo, changeOrigin:true});
